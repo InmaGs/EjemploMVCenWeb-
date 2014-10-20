@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+">
+     <!-- Busca la anotación @Autowired en todas las clases de la 
+    aplicación e inyecta el bean correspondiente si la encuentra -->
+  	<context:annotation-config />
+ 	<context:component-scan />
+ 	
+ 	<import resource="spring-datasource.xml"/>  
+        
+        <!-- Incluímos el bean que contiene el registro del contacto -->
+        <bean id="contacto" class="persistencia.contactoDao">
+            <property name="dataSource" ref="ds_ejemplo" />
+        </bean>     
+
+</beans>
+
+
