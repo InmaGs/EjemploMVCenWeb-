@@ -11,10 +11,10 @@
   	<context:annotation-config />
  	<context:component-scan />
  	
- 	<import resource="spring-datasource.xml"/>  
+ 	<import resource="/spring-datasource.xml"/>  
         
         <!-- Incluímos el bean que contiene el registro del contacto -->
-        <bean id="contacto" class="persistencia.contactoDao">
+        <bean id="contacto" class="persistencia.ContactoDao">
             <property name="dataSource" ref="ds_ejemplo" />
         </bean>     
 

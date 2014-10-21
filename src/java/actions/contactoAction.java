@@ -7,7 +7,7 @@ import datos.contactoDatos;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import persistencia.contactoDao;
+import persistencia.ContactoDao;
 import servicios.contactoServicio;
 
 public class contactoAction extends ActionSupport 
@@ -22,13 +22,11 @@ public class contactoAction extends ActionSupport
     
     //Método execute
     public String execute(){
-        //Invocamos un mapa que obtiene el resultado del registro
-        //del contacto        
-        Map<String, Object> resul = cs.registroContacto(contacto);
-        
+        //Aplicamos el registro del contacto                
+        cs.registroContacto(contacto);
         //Instanciamos una lista de errores
-        contactoDao err = new contactoDao();
-        List<String> lista = err.getErrorList(resul);
+        ContactoDao err = new ContactoDao();
+        List<String> lista = err.getErrorList();
         
         //Preguntamos por la lista de errores, para arrojar un 
         //resultado u otro

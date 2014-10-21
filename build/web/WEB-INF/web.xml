@@ -4,6 +4,7 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	 version="3.0">
+    <display-name>RepEjemploMVC</display-name>
     
     <session-config>
         <session-timeout>30</session-timeout>
@@ -35,7 +36,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/application-context.xml
+            /WEB-INF/application-context.xml, /WEB-INF/spring-datasource.xml
         </param-value>    	
     </context-param>
     
@@ -56,5 +57,8 @@
     <listener>
         <listener-class>org.springframework.web.context.
             ContextLoaderListener</listener-class>	     
-    </listener> 
+    </listener>
+    <listener>                                                                                       
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class> 
+    </listener>
 </web-app>
